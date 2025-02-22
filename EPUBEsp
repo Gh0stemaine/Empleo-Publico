@@ -1,0 +1,13 @@
+name: Actualización de bases de datos de empleo público
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Se ejecuta el primer día de cada mes
+jobs:
+  update-dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Ejecutar script de actualización
+        run: |
+          python actualizar_datos.py
